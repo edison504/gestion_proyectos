@@ -37,8 +37,8 @@ class Producto {
 
     // Insertar un nuevo registro (Crear)
     public function insertar($nombre, $descripcion, $precio, $cantidad, $categoria_id) {
-        $query = "INSERT INTO " . $this->table . " (nombre, descripcion, precio, cantidad, categoria_id) 
-                  VALUES (:nombre, :descripcion, :precio, :cantidad, :categoria_id)";
+        $query = "INSERT INTO " . $this->table . " (nombre, descripcion, precio, categoria_id, cantidad) 
+                  VALUES (:nombre, :descripcion, :precio, :categoria_id, :cantidad)";
         $stmt = $this->conn->prepare($query);
         return $stmt->execute([
             ':nombre' => $nombre,
@@ -52,7 +52,7 @@ class Producto {
     // Actualizar un registro existente (Editar)
     public function actualizar($id, $nombre, $descripcion, $precio, $cantidad, $categoria_id) {
         $query = "UPDATE " . $this->table . " 
-                  SET nombre = :nombre, descripcion = :descripcion, precio = :precio, cantidad = :cantidad, categoria_id = :categoria_id 
+                  SET nombre = :nombre, descripcion = :descripcion, precio = :precio, Cantidad = :cantidad, categoria_id = :categoria_id 
                   WHERE id = :id";
         $stmt = $this->conn->prepare($query);
         return $stmt->execute([
