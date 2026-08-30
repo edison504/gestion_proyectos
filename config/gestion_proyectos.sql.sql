@@ -53,17 +53,18 @@ CREATE TABLE `productos` (
   `nombre` varchar(150) NOT NULL,
   `descripcion` text NOT NULL,
   `precio` decimal(10,2) NOT NULL,
-  `categoria_id` int(11) NOT NULL
+  `categoria_id` int(11) NOT NULL,
+  `cantidad` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `precio`, `categoria_id`) VALUES
-(1, 'Laptop Lenovo', 'Computador portátil para trabajo y estudio', 2500000.00, 1),
-(2, 'Escritorio de oficina', 'Escritorio para trabajo y estudio', 650000.00, 2),
-(3, 'Televisor Samsung', 'Televisor inteligente de 50 pulgadas', 1800000.00, 3);
+INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `precio`, `categoria_id`, `cantidad`) VALUES
+(1, 'Laptop Lenovo', 'Computador portátil para trabajo y estudio', 2500000.00, 1, 6),
+(2, 'Escritorio de oficina', 'Escritorio para trabajo y estudio', 650000.00, 2, 7),
+(3, 'Televisor Samsung', 'Televisor inteligente de 50 pulgadas', 1800000.00, 3, 6);
 
 --
 -- Índices para tablas volcadas
