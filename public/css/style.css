@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary: #6366f1;
+    --primary-hover: #4f46e5;
+    --bg-body: #f1f5f9;
+    --card-bg: #ffffff;
+    --text-primary: #0f172a;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --accent-edit: #0284c7;
+    --accent-delete: #e11d48;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+
+body { background-color: var(--bg-body); color: var(--text-primary); min-height: 100vh; }
+
+header {
+    background: #0f172a;
+    color: #fff;
+    padding: 1.8rem 2rem;
+    border-bottom: 4px solid var(--primary);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+header h1 { font-size: 1.5rem; font-weight: 700; }
+
+.container {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 2rem;
+    max-width: 1300px;
+    margin: 2.5rem auto;
+    padding: 0 1.5rem;
+}
+
+.form-section, .table-section {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+}
+
+h2 { font-size: 1.2rem; font-weight: 700; margin-bottom: 1.5rem; color: #1e293b; }
+
+.form-group { margin-bottom: 1.2rem; display: flex; flex-direction: column; }
+.form-group label { font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--text-muted); }
+.form-group input, .form-group select, .form-group textarea {
+    padding: 0.75rem 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+}
+.form-group input:focus, .form-group select:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+}
+
+.btn {
+    width: 100%;
+    padding: 0.85rem;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    background: var(--primary);
+    color: white;
+    transition: background 0.2s;
+}
+.btn:hover { background: var(--primary-hover); }
+
+table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+th { background: #f8fafc; color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; padding: 1rem; text-align: left; border-bottom: 2px solid var(--border); }
+td { padding: 1rem; font-size: 0.9rem; border-bottom: 1px solid var(--border); }
+tr:hover td { background: #f8fafc; }
+
+.badge { background: #e0e7ff; color: #3730a3; padding: 0.3rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
+
+.btn-sm { padding: 0.4rem 0.8rem; border-radius: 6px; color: white; text-decoration: none; font-size: 0.8rem; font-weight: 600; }
+.btn-edit { background: var(--accent-edit); }
+.btn-delete { background: var(--accent-delete); }
+
+footer { text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.85rem; }
