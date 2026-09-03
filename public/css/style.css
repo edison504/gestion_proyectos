@@ -1,27 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Anton&family=PT+Mono&display=swap");
 
 :root {
-  --indigo: #6366f1;
-  --indigo-hover: #4f46e5;
-  --indigo-soft: rgba(99, 102, 241, 0.08);
-  --indigo-mid: rgba(99, 102, 241, 0.18);
-  --sky: #0ea5e9;
-  --sky-soft: rgba(14, 165, 233, 0.1);
-  --red: #f43f5e;
-  --red-soft: rgba(244, 63, 94, 0.1);
-  --bg-root: #f1f5ff;
-  --bg-card: #ffffff;
-  --bg-input: #f8faff;
-  --border: #dde3f5;
-  --border-focus: #6366f1;
-  --text-primary: #0f172a;
-  --text-mid: #4b5675;
-  --text-dim: #94a3b8;
-  --shadow-sm: 0 2px 8px rgba(99, 102, 241, 0.06);
-  --shadow-md: 0 8px 30px rgba(99, 102, 241, 0.1);
-  --shadow-lg: 0 20px 60px rgba(99, 102, 241, 0.15);
-  --font-ui: "PT Mono", sans-serif;
-  --font-tech: "PT Mono", sans-serif;
+    --primary: #6366f1;
+    --primary-hover: #4f46e5;
+    --bg-body: #f1f5f9;
+    --card-bg: #ffffff;
+    --text-primary: #0f172a;
+    --text-muted: #374f70;
+    --border: #e2e8f0;
+    --accent-edit: #0284c7;
+    --accent-delete: #e11d48;
 }
 
 *,
