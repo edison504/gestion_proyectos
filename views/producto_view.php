@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Proyectos y Servicios</title>
     <link rel="stylesheet" href="public/css/style.css?v=10">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <header>
@@ -12,7 +13,6 @@
     </header>
 
     <main class="container">
-        <!-- Tabla de Registros -->
         <section class="table-section">
             <div class="section-top">
                 <h2>Listado de Productos / Servicios</h2>
@@ -42,7 +42,7 @@
                                 <td class="td-desc"><?= htmlspecialchars($item['descripcion']) ?></td>
                                 <td>
                                     <a href="index.php?action=editar&id=<?= $item['id'] ?>" class="btn-sm btn-edit">Editar</a>
-                                    <a href="index.php?action=eliminar&id=<?= $item['id'] ?>" class="btn-sm btn-delete" onclick="return confirm('¿Seguro que deseas eliminar este registro?')">Eliminar</a>
+                                    <a href="index.php?action=eliminar&id=<?= $item['id'] ?>" class="btn-sm btn-delete" onclick="confirmarEliminar(event, this.href)">Eliminar</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -54,7 +54,22 @@
         </section>
     </main>
 
-    <!-- Modal de formulario -->
+    <div class="modal-overlay" id="confirmModal">
+        <div class="modal-card confirm-card">
+            <div class="confirm-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
+                </svg>
+            </div>
+            <h3 class="confirm-title">¿Eliminar registro?</h3>
+            <p class="confirm-desc">Esta acción no se puede deshacer. El registro se eliminará de forma permanente.</p>
+            <div class="confirm-actions">
+                <button class="btn btn-secondary" id="confirmCancel">Cancelar</button>
+                <a href="#" class="btn btn-danger" id="confirmOk">Sí, eliminar</a>
+            </div>
+        </div>
+    </div>
+
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal-card">
             <div class="modal-header">
@@ -68,6 +83,7 @@
                 <div class="form-group">
                     <label for="nombre">Nombre del Producto/Servicio</label>
                     <input type="text" id="nombre" name="nombre" value="<?= $productoEditar['nombre'] ?? '' ?>" placeholder="Ej. Laptop Lenovo">
+                    <span class="field-error" id="error-nombre"></span>
                 </div>
 
                 <div class="form-group">
@@ -80,16 +96,19 @@
                             </option>
                         <?php endforeach; ?>
                     </select>
+                    <span class="field-error" id="error-categoria"></span>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label for="precio">Precio ($)</label>
                         <input type="number" step="0.01" id="precio" name="precio" value="<?= $productoEditar['precio'] ?? '' ?>" placeholder="0.00">
+                        <span class="field-error" id="error-precio"></span>
                     </div>
                     <div class="form-group">
                         <label for="cantidad">Cantidad / Disponibilidad</label>
                         <input type="number" id="cantidad" name="cantidad" value="<?= $productoEditar['cantidad'] ?? '' ?>" placeholder="0">
+                        <span class="field-error" id="error-cantidad"></span>
                     </div>
                 </div>
 
